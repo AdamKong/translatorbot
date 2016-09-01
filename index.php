@@ -19,10 +19,10 @@ $validated = validateSecret($spark_signature, $rawDataFromWebHook, $secretKey);
 if ($validated && ($senderEmail != $botEmail)) {
 
     // no Bearer string before it, since we will add it later.
-    $sparkBotToken = "NWMyNjQ0OGMtMzE0ZS00ODk3LTkwNWYtNTA2MTM0YWE3YWUxZjUyNWY0NTUtMmY2";
+    $sparkBotToken = "xxxxxxxxxx";
     // Google's API key
     $botName = "Translator";
-    $googleAPIKey = "AIzaSyA__0Txpcmm6oF_SsfPBlpheG7cWjMgQw8";
+    $googleAPIKey = "xxxxxxxxxx";
     $messageID = $JSONDataFromWebHook["data"]["id"];  
     $roomId = $JSONDataFromWebHook["data"]["roomId"];  
     $sourceLang = "";
