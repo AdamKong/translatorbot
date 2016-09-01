@@ -42,7 +42,6 @@ if ($validated && ($senderEmail != $botEmail)) {
     // logging out the message content, for debugging.
     error_log("message content: ".$messageText);
     // tailing the message to translate the valid string.
-    $i = strlen($botName);
     // remove the bot name, and the space in leading and ending.
     $validMessageText = trim(substr($messageText, strlen($botName)));
     // logging out the valid message text for tranlation.
