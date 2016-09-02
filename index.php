@@ -19,7 +19,7 @@ $secretKey = "secretbottranslator"; // The secret string set when creating webho
 $senderEmail = $JSONDataFromWebHook["data"]["personEmail"];
 
 // no Bearer string before it, since we will add it later.
-$sparkBotToken = "NWMyNjQ0OGMtMzE0ZS00ODk3LTkwNWYtNTA2MTM0YWE3YWUxZjUyNWY0NTUtMmY2";
+$sparkBotToken = "xxxxxxxxxxxxxxxxxxx";
 // This header is used to interact with Spark API.
 $headers = array(
     "Content-type: application/json",
@@ -44,7 +44,7 @@ if ($validated && ($senderEmail != $botEmail)) {
     $emptyHeader = array();
 
     // Google's API key
-    $googleAPIKey = "AIzaSyA__0Txpcmm6oF_SsfPBlpheG7cWjMgQw8";
+    $googleAPIKey = "xxxxxxxxxxxxxxxxxxx";
     $commandName = "-help";
     $helpMessage ="Command Description: mention bot first, then input a space, write the code of the preferred language, space again and write the source sentences. [ For example: Translator en 你好,世界 ]. If you do not specify the language code, it's defaulted as English. See language codes for different languages from: https://cloud.google.com/translate/v2/translate-reference#supported_languages";
     $promptMessage = "The language of the source sentence is the same as the destination language!";
