@@ -198,7 +198,7 @@ The above command tells the bot to transtlate “How are you doing?” to French
 
 Do you still remember that when we create the webhook, we did not specify the room ID in the "filter" field? also, we retrieve the room ID from the real-time JSON. So the bot is not stuck to any room. You can simply invite it into any room and it will be working - so easy!
 
-The complete code can be found on our [Github] (https://github.com/AdamKong/translatorbot/blob/master/index.php). If you have any questions, please contact devsupport@ciscospark.com 24/7/365 and we’ll be happy to help!
+The complete code can be found on our [Github] (https://github.com/AdamKong/translatorbot/blob/master/index.php), with more detailed annotations. If you have any questions, please contact devsupport@ciscospark.com 24/7/365 and we’ll be happy to help!
 
 
 Adam Kong - Customer Support Engineer
