@@ -1,23 +1,21 @@
 # Spark Bot of Translation Master
 
-
-### Preface: 
 Thinking you have business partners from many different countries, and they only say their own language – English, German, Vietnamese, Chinese, Japenese and so on. How do you overcome the language barrier and communicate with them freely via IM? Now this is resolved by Cisco Spark + Google. The solution is the translation bot, which can translate easily between any two kinds of languages and show up the translated sentences to each other. This blog will walk  you through using the Spark bot feature and Google Translate API to build such a translation bot.
 
 
-##### Creating a Spark Bot:
+##### _Creating a Spark Bot_:
 First of all, you will need to build a Spark bot from [here](https://developer.ciscospark.com/add-app.html). Please click the “Create a Bot” in the right, and it will lead you to the page where you can follow to create a bot. Note please do not use the space character in the “Display Name” field since it would only show up the first word when it’s mentioned, and words after a space character will be ignored in a room. 
 
 
-##### Creating a Spark WebHook:
+##### _Creating a Spark WebHook_:
 Secondly, you need to use the bot’s token to [create a webhook](https://developer.ciscospark.com/endpoint-webhooks-post.html) so that Spark Cloud can send a notification post to your web server once the bot is involved, i.e. when it’s mentioned. You can just leave the “filter” field empty in order that the webhook can be triggered by bot involvements in any room. If you do not have a public web server, you can use [tunnlr](https://www.tunnlr.com) or [ngrok](https://ngrok.com/) to give your local web server a public address.
 
 
-##### Adding the bot to a room:
+##### _Adding the bot to a room_:
 Thirdly, you need to add the bot by its email address (you set in “Bot Username” field when creating the bot) to the room where you want to chat with your partner, by either [API](https://developer.ciscospark.com/endpoint-memberships-post.html) or Spark client UI (choose the room, then click the “people” icon, then “Add People”). Note you do need to have the appropriate permissions to add a person (an account) to a room – if you get any failure via API or no place to add people, then you might need the “Moderator” role of the room to do it.
 
 
-##### Opening a Google Cloud account, and enable its Translate API:
+##### _Opening up a Google Cloud account, and enable its Translate API_:
 Fourthly, create an account on [Google Cloud platform](https://cloud.google.com/translate/), enable the Translate API and get an API key. There are plenty of instructions for how to do it on the Google site, so I won’t introduce more on this here. The quickstart doc of how to detect the language code of a sentence and how to get the translated sentence is [here](https://cloud.google.com/translate/v2/quickstart). Those are basically HTTP GET with parameters and expecting results back, so I won’t say more here, either.
 
 
@@ -47,7 +45,7 @@ Now when the bot is mentioned in a room, Spark will send a post to your web serv
 	}
 ```
 
-We have a blog specifically for how to use a webhook secret to verify Spark POST, and you can find it from - https://developer.ciscospark.com/blog/blog-details-8123.html
+We have a blog specifically for how to use a webhook secret to verify Spark POST, and you can find it from [here](https://developer.ciscospark.com/blog/blog-details-8123.html)
 
 
 2, Extract the “personEmail”. If the personEmail is bot’s email (means the message is from the bot itself), then no translation. Otherwise start translation, if the #1 is good.
@@ -198,6 +196,7 @@ The above command shows you the way of how to use it (fr means French).
 The above command tells the bot to transtlate “How are you doing?” to French. 
 
 
-The complete code can be found on our Github https://github.com/AdamKong/translatorbot/blob/master/index.php. If you have any questions, please contact devsupport@ciscospark.com 24/7/365 and we’ll be happy to help!
+The complete code can be found on our [Github] (https://github.com/AdamKong/translatorbot/blob/master/index.php). If you have any questions, please contact devsupport@ciscospark.com 24/7/365 and we’ll be happy to help!
+
 
 Adam Kong - Customer Support Engineer
