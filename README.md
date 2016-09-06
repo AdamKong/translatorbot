@@ -1,6 +1,6 @@
 # Spark Bot of Translation Master
 
-Thinking you have business partners from many different countries, and they only say their own language – English, German, Vietnamese, Chinese, Japenese and so on. How do you overcome the language barrier and communicate with them freely via IM? Now this is resolved by Cisco Spark + Google. The solution is the translation bot, which can translate easily between any two kinds of languages and show up the translated sentences to each other. This blog will walk  you through using the Spark bot feature and Google Translate API to build such a translation bot.
+Thinking you have business partners from many different countries, and they only speak their own languages – English, German, Vietnamese, Chinese, Japenese and so on. How do you overcome the language barrier and communicate with them freely via IM? Now this is resolved by Cisco Spark + Google. The solution is the translation bot, which can translate easily between any two kinds of languages and show up the translated sentences to each other. This blog will walk  you through using the Spark bot feature and Google Translate API to build such a translation bot.
 
 
 ##### _Creating a Spark Bot_:
@@ -45,7 +45,7 @@ Now when the bot is mentioned in a room, Spark will send a post to your web serv
 	}
 ```
 
-We have a blog specifically for how to use a webhook secret to verify Spark POST, and you can find it from [here](https://developer.ciscospark.com/blog/blog-details-8123.html)
+We have a blog specifically for how to use a webhook secret to verify Spark POST, and you can find it from [here](https://developer.ciscospark.com/blog/blog-details-8123.html).
 
 
 2, Extract the “personEmail”. If the personEmail is bot’s email (means the message is from the bot itself), then no translation. Otherwise start translation, if the #1 is good.
@@ -111,7 +111,7 @@ The getData() is an encapsulated funtion for doing the actual HTTP GET/POST, so 
 	$sourceMessage = trim(substr($validMessageText,strlen($firstWord)));
 ```
 
-6, Based on the command in the message content, do the needful. If the command is “–help”, then it posts a helping message to the room. If the command is one of the language codes in [here](https://cloud.google.com/translate/v2/translate-reference#supported_languages], or not set (it’s defaulted to “en” as the destination language code), then send the sentences to Google API to detect the source language code. If the source language code is the same as the destination language code, then no need to translate, otherwise do the translation. 
+6, Based on the command in the message content, do the needful. If the command is “–help”, then it posts a helping message to the room. If the command is one of the language codes in [here](https://cloud.google.com/translate/v2/translate-reference#supported_languages), or not set (it’s defaulted to “en” as the destination language code), then send the sentences to Google API to detect the source language code. If the source language code is the same as the destination language code, then no need to translate, otherwise do the translation. 
 
 ```PHP
 	if ($firstWord === $commandName) { 
@@ -128,7 +128,7 @@ The getData() is an encapsulated funtion for doing the actual HTTP GET/POST, so 
 			<!--If they are not the same, then try to get-->
 			<!--the translated text, and send back to the -->
 			<!--spark room.-->
-	   Get translated text, and send to spark room.
+			<!--Get the translated text, and send to spark room.-->
 		} else {
 			<!--send the prompt message to Spark, saying-->
 			<!--the language codes are the same, no need to-->
@@ -172,7 +172,7 @@ The detectSourceLangCode() is to detect the language code of the source message.
 	}
 ```
 
-8, Send the translated sentences back to Spark room where the source message is from (identified by the room ID in #3).
+8, Send the translated sentences back to Spark room which the source message is from (identified by the room ID in #3).
 
 ```PHP
 	function sendMessageToSpark($roomId, $headers, $message) {
@@ -196,7 +196,8 @@ The above command shows you the way of how to use it (fr means French).
 The above command tells the bot to transtlate “How are you doing?” to French. 
 
 
-Do you still remember that when we create the webhook, we did not specify the room ID in the "filter" field? also, we retrieve the room ID from the real-time JSON. So the bot is not stuck to any room. You can simply invite it into any room and it will be working - so easy!
+
+Do you still remember that when we create the webhook, we did not specify the room ID in the "filter" field? also, we retrieve the room ID from the real-time JSON. So the bot is not stuck to any room. You can simply invite it into any room and it will be working - so easy! We also retrieve the bot's name from API, instead of hard-coding it in script, so it won't affect string length calculation and we can rename the bot's name freely.
 
 The complete code can be found on our [Github] (https://github.com/AdamKong/translatorbot/blob/master/index.php), with more detailed annotations. If you have any questions, please contact devsupport@ciscospark.com 24/7/365 and we’ll be happy to help!
 
